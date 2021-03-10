@@ -1,6 +1,4 @@
 
-# 
--------------------------
 - [Requirements](#requirements)
 - [Run](#run)
 - [Build](#build)
@@ -9,12 +7,10 @@
 - [Find Organization](#find-organization)
 - [Find Ticket](#find-ticket)
 
--------------------------
 ## Requirements
 
 - Go 1.10 or higher. We aim to support the latest supported versions of go.
 
--------------------------
 ## Run
 ```go 
     git clone https://github.com/hson91/go-test-challenge.git
@@ -22,19 +18,16 @@
     go run app.go
 ```
 
--------------------------
 ## Build
 ```go 
     go build -o app
 ```
 
--------------------------
 ## Test
 ```go 
     go test -v
 ```
 
--------------------------
 ## Usage
 - Help: ```$ help``` 
 
@@ -49,7 +42,7 @@
 - Show struct ticket: ```$ tiket struct```
 
 ## Find User
-Syntax: ```$ user find attribute=value ```
+Syntax: ```$ user find attribute=value ```\
 Attributes of User find
 ``` 
     id int
@@ -65,18 +58,18 @@ Attributes of User find
     suspended true or false
     verified true or false
 ```
-**Example with find user:**
-Find user by id = 1
+**Example with find user:**\
+Find user by id = 1\
 ```$ user find id=1```
 
-Find User with name = "Francisca Rasmussen"
+Find User with name = "Francisca Rasmussen"\
 ```$ user find name="Francisca Rasmussen"```
 
-Find User with active = true
+Find User with active = true\
 ```$ user find active=true```
 
 ## Find Organization
-Syntax: ```$ organization find attribute=value```
+Syntax: ```$ organization find attribute=value```\
 Attributes of Organization find
 ``` 
     id int
@@ -85,18 +78,18 @@ Attributes of Organization find
     domain <string>
     shared_tickets true or false
 ```
-**Example with find organization:**
-Find Organization with id = 124
+**Example with find organization:**\
+Find Organization with id = 124\
 ```$ organization find id=124```
 
-Find Organization with name="Qualitern"
+Find Organization with name="Qualitern"\
 ```$ organization find name='Qualitern'```
 
-Find Organization with shared_tickets=true
+Find Organization with shared_tickets=true\
 ```$ organization find shared_tickets=true```
 
 ## Find Ticket
-Syntax: ```$ ticket find attribute=value ```
+Syntax: ```$ ticket find attribute=value ```\
 Attributes of Organization find
 ``` 
     id : int
@@ -109,10 +102,10 @@ Attributes of Organization find
     assignee_id : int
     organization_id : int
 ```
-** Example with find ticket: **
-Find ticket with id = "436bf9b0-1147-4c0a-8439-6f79833bff5b"
+**Example with find ticket:** \
+Find ticket with id = "436bf9b0-1147-4c0a-8439-6f79833bff5b"\
 ```$ ticket find id="436bf9b0-1147-4c0a-8439-6f79833bff5b" ```
 
-Find ticket with status = pending
+Find ticket with status = pending\
 ```$ ticket find status=pending ```
 ## Thanks and Acknowledgement 
