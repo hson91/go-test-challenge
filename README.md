@@ -25,7 +25,7 @@
 
 ## Test
 ```go 
-    go test -v
+    go test ./... -v
 ```
 
 ## Usage

@@ -29,10 +29,7 @@ func (tsrv *TicketSrv) GetAllTicket(filters *serializers.TicketReq) ([]*models.T
 		return nil, err
 	}
 
-	results, err := tsrv.search(tickets, filters), nil
-	if err != nil {
-		return nil, err
-	}
+	results := tsrv.search(tickets, filters)
 
 	if err := tsrv.includeUsersAndOrganization(results); err != nil {
 		return nil, err

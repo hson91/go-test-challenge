@@ -29,10 +29,7 @@ func (usrv *UserSrv) GetAllUser(filters *serializers.UserReq) ([]*models.User, e
 		return nil, err
 	}
 
-	results, err := usrv.search(tickets, filters), nil
-	if err != nil {
-		return nil, err
-	}
+	results := usrv.search(tickets, filters)
 
 	if err := usrv.includeTicketsAndOrganization(results); err != nil {
 		return nil, err

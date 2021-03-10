@@ -29,10 +29,7 @@ func (osrv *OrganizationSrv) GetAllOrganization(filters *serializers.Organizatio
 		return nil, err
 	}
 
-	results, err := osrv.search(organizations, filters), nil
-	if err != nil {
-		return nil, err
-	}
+	results := osrv.search(organizations, filters)
 
 	if err := osrv.includeUsers(results); err != nil {
 		return nil, err

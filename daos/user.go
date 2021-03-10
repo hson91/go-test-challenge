@@ -3,7 +3,6 @@ package daos
 import (
 	"encoding/json"
 
-	"github.com/go-test-challenge/config"
 	"github.com/go-test-challenge/errors"
 	"github.com/go-test-challenge/libs"
 	"github.com/go-test-challenge/models"
@@ -12,12 +11,15 @@ import (
 
 // UserDAO : struct
 type UserDAO struct {
-	Data []*models.User
+	Data     []*models.User
+	filePath string
 }
 
 // NewUserDAO : new instance UserDAO
-func NewUserDAO() *UserDAO {
-	return &UserDAO{}
+func NewUserDAO(filePath string) *UserDAO {
+	return &UserDAO{
+		filePath: filePath,
+	}
 }
 
 // GetAllUsers : get all organization
@@ -26,7 +28,7 @@ func (ud *UserDAO) GetAllUsers(filters *serializers.UserReq) ([]*models.User, er
 		return ud.Data, nil
 	}
 
-	byteValues, err := libs.ReadFile(config.PathFileUser)
+	byteValues, err := libs.ReadFile(ud.filePath)
 	if err != nil {
 		return nil, err
 

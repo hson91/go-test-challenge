@@ -3,7 +3,6 @@ package daos
 import (
 	"encoding/json"
 
-	"github.com/go-test-challenge/config"
 	"github.com/go-test-challenge/errors"
 	"github.com/go-test-challenge/libs"
 	"github.com/go-test-challenge/models"
@@ -12,12 +11,15 @@ import (
 
 // TicketDAO : struct
 type TicketDAO struct {
-	Data []*models.Ticket
+	Data     []*models.Ticket
+	filePath string
 }
 
 // NewTicketDAO : new instance UserDAO
-func NewTicketDAO() *TicketDAO {
-	return &TicketDAO{}
+func NewTicketDAO(filePath string) *TicketDAO {
+	return &TicketDAO{
+		filePath: filePath,
+	}
 }
 
 // GetAllTickets : get all organization
@@ -26,7 +28,7 @@ func (td *TicketDAO) GetAllTickets(filters *serializers.TicketReq) ([]*models.Ti
 		return td.Data, nil
 	}
 
-	byteValues, err := libs.ReadFile(config.PathFileTicket)
+	byteValues, err := libs.ReadFile(td.filePath)
 	if err != nil {
 		return nil, err
 
