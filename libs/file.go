@@ -3,6 +3,7 @@ package libs
 import (
 	"io/ioutil"
 	"os"
+	"path/filepath"
 
 	"github.com/go-test-challenge/errors"
 )
@@ -11,9 +12,15 @@ import (
 // Params : path
 // Result : []byte
 func ReadFile(path string) ([]byte, error) {
-	fi, err := os.Open(path)
+	dir, _ := filepath.Split(os.Args[0])
+	filename := filepath.Join(dir, path)
+
+	fi, err := os.Open(filename)
 	if err != nil {
-		return nil, errors.ErrorWithMessage(errors.OpenFileHasError, err.Error())
+		fi, err = os.Open(path)
+		if err != nil {
+			return nil, errors.ErrorWithMessage(errors.OpenFileHasError, err.Error())
+		}
 	}
 
 	defer fi.Close()
